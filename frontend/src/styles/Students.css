@@ -1,11 +1,15 @@
 /* BUG: Students page styling incomplete */
 .students-page {
   /* BUG: Missing padding, margin, and max-width */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .students-page h1 {
   /* BUG: No proper heading styling */
   font-size: 2rem;
+  color: #333;
 }
 
 .controls {
@@ -13,6 +17,7 @@
   gap: 1rem;
   margin-bottom: 2rem;
   /* BUG: No flex-wrap for mobile */
+  flex-wrap: wrap;
 }
 
 .search-input {
@@ -21,11 +26,15 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   /* BUG: No focus state */
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-input:focus {
   outline: none;
   /* BUG: No focus styling */
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .filter-select {
@@ -33,11 +42,23 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   /* BUG: No background color */
+  background-color: white;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .students-table {
   overflow-x: auto;
   /* BUG: No shadow or border */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .students-table table {
@@ -56,6 +77,7 @@
   text-align: left;
   font-weight: 600;
   border-bottom: 2px solid #ddd;
+  color: #333;
 }
 
 .students-table td {
@@ -66,11 +88,13 @@
 /* BUG: Alternating row colors missing */
 .students-table tbody tr:nth-child(even) {
   /* BUG: Background color not set */
+  background-color: #fafafa;
 }
 
 .students-table tbody tr:hover {
   background-color: #f9f9f9;
   /* BUG: No transition */
+  transition: background-color 0.2s ease;
 }
 
 .students-table button {
@@ -81,6 +105,16 @@
   border-radius: 3px;
   cursor: pointer;
   /* BUG: No hover state */
+  transition: background-color 0.2s ease;
+}
+
+.students-table button:hover {
+  background-color: #c82333;
+}
+
+.students-table button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.25);
 }
 
 .no-students {
@@ -88,6 +122,7 @@
   color: #999;
   padding: 2rem;
   /* BUG: Font size not specified */
+  font-size: 1.1rem;
 }
 
 .btn-add-student {
@@ -99,6 +134,28 @@
   cursor: pointer;
   margin-top: 2rem;
   /* BUG: No hover effect */
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn-add-student:hover {
+  background-color: #218838;
+}
+
+.btn-add-student:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
 }
 
 /* BUG: Mobile responsive styles missing */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+  .search-input {
+    width: 100%;
+  }
+  .filter-select {
+    width: 100%;
+  }
+}

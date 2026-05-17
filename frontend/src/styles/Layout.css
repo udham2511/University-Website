@@ -3,6 +3,9 @@
   background-color: #333;
   padding: 1rem 2rem;
   /* BUG: No sticky positioning */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav-container {
@@ -11,6 +14,7 @@
   display: flex;
   justify-content: space-between;
   /* BUG: Missing align-items */
+  align-items: center;
 }
 
 .nav-logo {
@@ -18,6 +22,18 @@
   font-size: 1.5rem;
   font-weight: bold;
   /* BUG: Missing hover effect */
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+.nav-logo:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
 }
 
 .nav-menu {
@@ -26,6 +42,7 @@
   margin: 0;
   padding: 0;
   /* BUG: Missing gap between items */
+  gap: 0.5rem;
 }
 
 .nav-item {
@@ -37,11 +54,22 @@
   padding: 0.5rem 1rem;
   text-decoration: none;
   /* BUG: Missing hover and active states */
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
 }
 
 .nav-link:hover {
   background-color: #555;
   /* BUG: No transition */
+}
+
+.nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.nav-link.active {
+  background-color: #555;
 }
 
   color: white;
@@ -56,6 +84,16 @@
   border-radius: 3px;
   cursor: pointer;
   /* BUG: No hover state */
+  transition: background-color 0.2s ease;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.btn-login:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 /* Footer Styles */
@@ -77,6 +115,7 @@
   display: flex;
   justify-content: center;
   /* BUG: Missing gap */
+  gap: 1rem;
   margin-top: 1rem;
 }
 
@@ -85,6 +124,31 @@
   margin: 0 1rem;
   text-decoration: none;
   /* BUG: No hover effect on footer links */
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-links a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
 }
 
 /* BUG: Missing responsive styles for mobile navigation */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
