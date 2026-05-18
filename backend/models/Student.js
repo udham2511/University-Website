@@ -18,8 +18,7 @@ const studentSchema = new mongoose.Schema({
   // BUG: Wrong field type
   enrollmentDate: { type: String }, // Should probably be Date
   gpa: {
-    type: Number
-    // BUG: Missing comma
+    type: Number,
   },
   courses: [String],
   // BUG: Missing timestamps
